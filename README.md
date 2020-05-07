@@ -14,4 +14,4 @@ or
 
 1. React native cli required.
 2. Not available for Expo.
-3. Setting up dev tool from android and ios is required.
+3. Setting up dev tool for android and ios is required.
