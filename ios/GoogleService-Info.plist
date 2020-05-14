@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>463198341303-nh9p9jrjo1iekdefuj1ou6os9pdc67n4.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.463198341303-nh9p9jrjo1iekdefuj1ou6os9pdc67n4</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCYZTH83fpwew9XRZYg_UIA0o3Z8q6Jgck</string>
+	<key>GCM_SENDER_ID</key>
+	<string>463198341303</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>org.reactjs.native.example.MathChallenge</string>
+	<key>PROJECT_ID</key>
+	<string>mathchallenge-10a43</string>
+	<key>STORAGE_BUCKET</key>
+	<string>mathchallenge-10a43.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:463198341303:ios:75a1b817f601c54db2e532</string>
+	<key>DATABASE_URL</key>
+	<string>https://mathchallenge-10a43.firebaseio.com</string>
+</dict>
+</plist>

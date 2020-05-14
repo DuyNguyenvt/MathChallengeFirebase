@@ -1,0 +1,14 @@
+/*
+ *
+ * modal constants
+ *
+ */
+
+export const TOGGLE_DELETE_ITEM_MODAL =
+  'firebase/RTDB/TOGGLE_DELETE_ITEM_MODAL';
+export const TOGGLE_DELETE_ITEM_MODAL_SUCCESS =
+  'firebase/RTDB/TOGGLE_DELETE_ITEM_MODAL_SUCCESS';
+
+export const TOGGLE_ADD_USER_MODAL = 'firebase/RTDB/TOGGLE_ADD_USER_MODAL';
+export const TOGGLE_ADD_USER_MODAL_SUCCESS =
+  'firebase/RTDB/TOGGLE_ADD_USER_MODAL_SUCCESS';
