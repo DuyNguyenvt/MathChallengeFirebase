@@ -12,11 +12,10 @@ class AddUserModal extends React.PureComponent {
     return (
       <FullScreenModal
         isModalOpen={_.get(context, 'status')}
-        noteText="This item will not be able to restore after being deleted."
-        okText="Delete"
-        cancelText="Cancel"
-        okAction={_.get(context, 'okAction')}
-        cancelAction={_.get(context, 'cancelAction')}
+        title="Add New User"
+        closeAction={_.get(context, 'closeAction')}
+        bodyContent={_.get(context, 'bodyContent')}
+        addUserAction={_.get(context, 'addUserAction')}
       />
     );
   }

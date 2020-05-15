@@ -11,6 +11,10 @@ import {
   // Body,
   Button,
   // Thumbnail,
+  Form,
+  Item,
+  Input,
+  View,
 } from 'native-base';
 import database from '@react-native-firebase/database';
 import {StyleSheet} from 'react-native';
@@ -18,6 +22,7 @@ import {StyleSheet} from 'react-native';
 import * as _ from 'lodash';
 import UserItem from '../../components/RTDB/UserItem';
 import Entypo from 'react-native-vector-icons/Entypo';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 // import AntDesign from 'react-native-vector-icons/AntDesign';
 
 import * as modalActions from 'containers/Modal/actions';
@@ -27,7 +32,7 @@ class UserCRUD extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      userData: [],
+      userData: {},
     };
   }
   componentDidMount() {
@@ -46,7 +51,7 @@ class UserCRUD extends React.Component {
           this.setState({userData: snapshot.val()});
         }
         if (snapshot.val() === null) {
-          this.setState({userData: []});
+          this.setState({userData: {}});
         }
         console.log('user values', snapshot.val());
       });
@@ -58,63 +63,113 @@ class UserCRUD extends React.Component {
       .remove();
   }
 
+  addUser(requestData) {
+    const newReference = database()
+      .ref('/Users')
+      .push();
+    console.log('requestData', requestData);
+    // newReference.key;
+    // console.log('new key', newReference.key);
+    // database()
+    //   .ref('/Users' + `/${newReference.key}`)
+    //   .set({
+    //     name: 'test',
+    //   })
+    //   .then(() => console.log('Data updated.'));
+    // newReference.set(requestData).then(() => console.log('Data updated.'));
+  }
+
   render() {
     const {userData} = this.state;
     const {navigation, dispatch} = this.props;
     return (
-      <Container>
-        <Content>
-          <List>
-            {userData.map((user, idx) =>
-              user ? (
+      <Container style={styles.container}>
+        <List>
+          {!_.isEqual(userData, {}) ? (
+            Object.keys(userData).map((userKey, idx) =>
+              userKey ? (
                 <UserItem
                   key={idx}
-                  userData={user}
+                  userData={_.get(userData, userKey)}
                   navigation={navigation}
                   dispatch={dispatch}
                   userId={idx}
                 />
               ) : null,
-            )}
-          </List>
-          <Content
-            justifyContent="center"
-            alignItems="flex-end"
-            paddingRight={10}
-            marginTop={20}>
-            <Button
-              medium
-              primary
-              onPress={() => {
-                dispatch(modalActions.toggleAddUserModal({status: true}));
-              }}>
-              <Entypo
-                name={'add-user'}
-                size={20}
-                color="white"
-                style={{paddingLeft: 10}}
-              />
-              <Text style={styles.check}>Add User</Text>
-            </Button>
-          </Content>
-        </Content>
+            )
+          ) : (
+            <Text style={styles.note}>There is no user to show</Text>
+          )}
+        </List>
+
+        <Button
+          medium
+          transparent
+          rounded
+          style={styles.addUserBtn}
+          onPress={() => {
+            dispatch(
+              modalActions.toggleAddUserModal({
+                status: true,
+                closeAction: () => {
+                  dispatch(modalActions.toggleAddUserModal({status: false}));
+                },
+                addUserAction: () => {
+                  this.addUser();
+                },
+              }),
+            );
+          }}>
+          <Entypo
+            name={'add-user'}
+            size={20}
+            color="#ffaf40"
+            style={{paddingLeft: 10}}
+          />
+        </Button>
       </Container>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  list: {
-    backgroundColor: 'green',
+  addUserBtn: {
+    position: 'absolute',
+    right: 30,
+    bottom: 30,
+    width: 50,
+    height: 50,
+    backgroundColor: '#fcfaf7',
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 6,
+      height: 6,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingRight: 4,
   },
-  left: {},
-  body: {},
+  note: {
+    textAlign: 'center',
+    fontWeight: 'bold',
+    padding: 30,
+  },
   right: {
     flexDirection: 'row',
   },
   btn: {
     marginRight: 10,
     paddingHorizontal: 7,
+  },
+  container: {},
+  wrapper: {
+    backgroundColor: 'green',
+  },
+  form: {
+    width: '100%',
   },
 });
 

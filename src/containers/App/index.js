@@ -17,7 +17,6 @@ class App extends React.Component {
     super(props);
   }
   render() {
-    console.log('check store', this.props);
     return (
       <>
         <NavigationContainer>
