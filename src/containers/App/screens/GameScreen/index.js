@@ -15,7 +15,7 @@ import {StyleSheet, ScrollView} from 'react-native';
 import * as _ from 'lodash';
 import moment from 'moment';
 
-import CountDownBar from 'containers/App/screens/components/GameScreen/CountDownBar';
+// import CountDownBar from 'containers/App/components/GameScreen/CountDownBar';
 import CheckedIcon from 'assets/AppAsset/checked.png';
 import WrongIcon from 'assets/AppAsset/wrong.png';
 
@@ -173,7 +173,7 @@ class GameScreen extends React.PureComponent {
               </Text>
             </View>
             <View style={styles.CountDownBarWrapper}>
-              <CountDownBar percent={Math.round((time / timeLength) * 100)} />
+              {/* <CountDownBar percent={Math.round((time / timeLength) * 100)} /> */}
             </View>
             <View style={styles.gameBody}>
               <View style={styles.gameQuestion}>

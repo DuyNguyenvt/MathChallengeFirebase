@@ -12,6 +12,7 @@
 // import productDetailReducer from 'containers/ProductDetail/reducer';
 // import buyReducer from 'containers/Buy/reducer';
 // import insightsReducer from 'containers/Insights/reducer';
+import modalReducer from 'containers/Modal/reducer';
 import {combineReducers} from 'redux';
 
 /**
@@ -19,6 +20,8 @@ import {combineReducers} from 'redux';
  */
 export default function createReducer(injectedReducers = {}) {
   const rootReducer = combineReducers({
+    modal: modalReducer,
+    // Firebase: Firebase,
     // global: globalReducer,
     // modals: modalReducer,
     // home: homeReducer,

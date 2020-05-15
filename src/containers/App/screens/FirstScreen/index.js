@@ -19,6 +19,13 @@ class FirstScreen extends Component {
             }}>
             <Text style={styles.textBtn}> Let's start game</Text>
           </Button>
+          <Button
+            style={styles.playBtn}
+            onPress={() => {
+              navigation.navigate('App/Firebase');
+            }}>
+            <Text style={styles.textBtn}> Firebase</Text>
+          </Button>
         </View>
       </View>
     );
@@ -34,9 +41,8 @@ const styles = StyleSheet.create({
   playBtn: {
     fontWeight: 'bold',
     justifyContent: 'center',
-    paddingHorizontal: 50,
-    alignSelf: 'flex-end',
     marginBottom: 40,
+    width: '80%',
   },
   textBtn: {
     fontSize: 25,
@@ -47,11 +53,12 @@ const styles = StyleSheet.create({
   },
   innerContainer: {
     position: 'absolute',
-    flexDirection: 'row',
+    flexDirection: 'column',
     top: 0,
     width: '100%',
     height: '100%',
-    justifyContent: 'center',
+    justifyContent: 'flex-end',
+    alignItems: 'center',
   },
 });
 

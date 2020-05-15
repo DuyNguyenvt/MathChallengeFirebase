@@ -8,12 +8,14 @@
 // import productDetailSaga from 'containers/ProductDetail/saga';
 // import buySaga from 'containers/Buy/saga';
 // import insightsSaga from 'containers/Insights/saga';
+import modalSaga from 'containers/Modal/saga';
 
 import {all} from 'redux-saga/effects';
 
 export default function* rootSaga() {
   yield all([
     // globalSaga(),
+    modalSaga(),
     // homeSaga(),
     // portfolioSaga(),
     // productSaga(),
